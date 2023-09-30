@@ -13,11 +13,11 @@
 # Configure Terraform Remote Backend with DynamoDB State Locking
 terraform {
   backend "s3" {
-    bucket         = "my-s3-bkt-tf"
-    key            = "terraform.tfstate"
-    region         = "us-east-1"
-    encrypt        = true
-    dynamodb_table = "exisitng-terraform-db"
+    bucket  = "my-s3-bkt-tf"
+    key     = "terraform.tfstate"
+    region  = "us-east-1"
+    encrypt = true
+    # dynamodb_table = "exisitng-terraform-db"
   }
 }
 
