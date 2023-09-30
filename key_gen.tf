@@ -4,7 +4,7 @@ resource "tls_private_key" "rsa-key" {
   rsa_bits  = 4096
 }
 
-resource "aws_key_pair" "tf-key-pair" {
+resource "aws_key_pair" "tf-key-pairz" {
   key_name   = "tf-key-pairz"
   public_key = tls_private_key.rsa-key.public_key_openssh
 }
