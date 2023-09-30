@@ -1,7 +1,6 @@
 *.tfstate
-.tfstate.
 .terraform/
-*.tfvars
 .terraform.lock.hcl
-tf-key-pair.pem
+tf-key-pairz.pem
 terraform.tfstate.backup
+terraform.tfstate.d/

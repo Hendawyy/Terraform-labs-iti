@@ -8,9 +8,11 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = true
   key_name                    = aws_key_pair.tf-key-pair.id
 
+
   provisioner "local-exec" {
-    command = "echo 'Bastion Public IP: ${self.public_ip}'"
+    command = "echo 'Bastion Public IP: ${self.public_ip}' > inventory.txt"
   }
+
   user_data = <<-EOF
     #!/bin/bash
     echo '${tls_private_key.rsa-key.private_key_pem}' > /home/ec2-user/private-key.pem
