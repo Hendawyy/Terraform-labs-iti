@@ -6,7 +6,7 @@ resource "aws_instance" "bastion" {
   subnet_id                   = module.mynetwork.public_subnets[count.index].id
   vpc_security_group_ids      = [aws_security_group.ssh_from_anywhere.id]
   associate_public_ip_address = true
-  key_name                    = aws_key_pair.tf-key-pair.id
+  key_name                    = aws_key_pair.tf-key-pairz.id
 
 
   provisioner "local-exec" {
