@@ -16,19 +16,19 @@ The project encompasses the following components:
 - A Lambda function to send email notifications triggered by state file changes.
 
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### Prerequisites  🛠️
 
 Before you begin, ensure you have the following installed:
 
-- Terraform
-- AWS CLI
-- Jenkins (Docker image recommended)
-- Python
-- Docker
+- Terraform 🏗️
+- AWS CLI ☁️
+- Jenkins (Docker image recommended) 🐳
+- Python  🐍
+- Docker  🐋
 
-### How To configure AWS credentials after installing the AWS CLI
+### How To configure AWS credentials after installing the AWS CLI  🔑
 
 1. Open a terminal window.
 2. Run the following command:
@@ -43,15 +43,18 @@ aws configure
 - Default region name: Enter your desired AWS region (e.g., us-east-1, eu-central-1).
 - Default output format: Default JSON.
 
-#### How to Get AWS Access Key ID & AWS Secret Access Key
+#### How to Get AWS Access Key ID & AWS Secret Access Key  🔑
 
 - Log in to your AWS account.
 - Click on your account name in the top right corner.
-- Hover over "Security Credentials."
-- Find "Access keys" and click "Create Access key."
+- Hover over "Security Credentials."  🔑
+- Find "Access keys" and click "Create Access key."  🔑
 - Copy and paste the AWS Access Key ID & AWS Secret Access Key into the terminal after running 'aws configure'.
 
-### Create Workspaces
+---- 🌟 ----
+
+
+### Create Workspaces 🏢
 
 1. By default, you are on the default workspace. Verify your current workspace by running:
 
@@ -92,10 +95,13 @@ terraform apply -var-file=prod.tfvars #for the "prod" environment
 >  You might encounter this problem now and in the future.
 
 > [!WARNING]
->  If you encounter issues switching between workspaces, import your key in the selected workspace:
+>  If you encounter issues switching between workspaces, import your key in the selected workspace:  🔑
 > ```
 > terraform import aws_key_pair.tf-key-pairz tf-key-pairz
 > ```
+
+---- 🌟 ----
+
 
 ### Network resources separated into a reusable module
 
@@ -129,6 +135,9 @@ terraform apply -var-file=prod.tfvars #for the "prod" environment
 terraform apply -var-file=dev.tfvars #for the "dev" environment
 terraform apply -var-file=prod.tfvars #for the "prod" environment
 ```
+
+---- 🌟 ----
+
 
 ### Deployment of resources in `us-east-1` and `eu-central-1` regions.
 
@@ -165,6 +174,9 @@ terraform apply -var-file=prod.tfvars #for the "prod" environment
 >   copy it and add it as your ami_id no need to create the instance
 >   you can find that the ami is diffrent for both region that is because you need to specify the region first and then get the ami-id for the selected region.
 
+---- 🌟 ----
+
+
 ### Local execution of a provisioner to print the public IP of a Bastion EC2 instance.
 
 - you will need to add a provisioner in the terraform file for creating the Bastion EC2 instance Example
@@ -177,7 +189,10 @@ terraform apply -var-file=prod.tfvars #for the "prod" environment
 > Make Sure to apply the configuration in the default workspace to get the inventory.txt file & also make sure that the generated ip is the same as the public ip in the Bastion EC2 instance on the AWS console.
 
 
-### Integration with Jenkins for automated provisioning.
+---- 🌟 ----
+
+
+### Integration with Jenkins for automated provisioning. 🤖
 1. Create a directory called jenkins-terraform and place a Dockerfile inside it.
 2. This Dockerfile uses the official Jenkins base image, installs the necessary packages (curl and unzip), and then installs Terraform.
 3. Build the Docker Image
@@ -234,21 +249,27 @@ terraform apply -var-file=prod.tfvars #for the "prod" environment
       - Check your AWS account to ensure all instances have been created successfully.
 
 
+---- 🌟 ----
+
+
   ### Integration with AWS Simple Email Service (SES) for email notifications
 
   1. Sign in to the AWS Management Console using your AWS account credentials.
   2. Go to the Amazon SES console.
-  3. Verify a new email address:
+  3. Verify a new email address:✅
      - In the SES console, navigate to the "Email Addresses" section.
      - Click the "Verify a New Email Address" button.
      - Enter the email address you want to verify and click "Verify This Email Address."
   4. Check your email for a verification message sent by Amazon SES.
   5. Click the verification link provided in the message to confirm the email address.
-  6. Return to the SES console, where you should see a message indicating that the email address has been successfully verified.
+  6. Return to the SES console, where you should see a message indicating that the email address has been successfully verified.✅
   
+---- 🌟 ----
+
+
   ###  A Lambda function to send email notifications triggered by state file changes.
   1. Sign in to the AWS Management Console using your AWS account credentials.
-  2. Navigate to IAM and create a new role.
+  2. Navigate to IAM and create a new role. 🛡️
   3. Add the AmazonS3FullAccess and AmazonSESFullAccess permission policies to the role.
   4. Navigate to S3 and create a bucket with default configurations.
   5. Navigate to Lambda and create a new function:
@@ -263,6 +284,9 @@ terraform apply -var-file=prod.tfvars #for the "prod" environment
   >You need to change the recipient mail and the sender mail in the ```mail_script.py```, The mail will only be sent from or to an email that has been verified in the SES step.
 
 
+---- 🌟 ----
+
+
 ## Questions or Need Help?
 
-If you have any questions, suggestions, or need assistance, please don't hesitate to Contact Me [Seif Hendawy](mailto:seifhendawy1@gmail.com).
+If you have any questions, suggestions, or need assistance, please don't hesitate to Contact Me [Seif Hendawy](mailto:seifhendawy1@gmail.com). 😉 
