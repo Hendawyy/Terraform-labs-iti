@@ -27,9 +27,9 @@ Before you begin, ensure you have the following installed:
 ## How To configure AWS credentials after installing the AWS CLI
 Open a terminal window.
 Run the following command
-'''
+```
 aws configure
-'''
+```
 
 You will be prompted to enter the following information:
 
