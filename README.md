@@ -1,6 +1,10 @@
 # Terraform Infrastructure
 
-This project demonstrates the setup of infrastructure as code (IAC) using Terraform to create two distinct environments (dev and prod) in AWS. It includes the following components:
+This project showcases the power of Infrastructure as Code (IAC) through Terraform, enabling the creation of two distinct AWS environments: development (dev) and production (prod).
+
+It orchestrates the deployment of a Virtual Private Cloud (VPC) with two public and two private subnets, setting up internet gateways, and configuring public and private route tables.
+
+The project encompasses the following components:
 
 - Creation of two workspaces: `dev` and `prod`.
 - Definition of environment-specific variables in `.tfvars` files.
