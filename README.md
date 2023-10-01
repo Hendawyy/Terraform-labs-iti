@@ -25,65 +25,70 @@ Before you begin, ensure you have the following installed:
 - Docker
 
 ### How To configure AWS credentials after installing the AWS CLI
-Open a terminal window.
-Run the following command
+
+1. Open a terminal window.
+2. Run the following command:
 ```
 aws configure
 ```
 
-You will be prompted to enter the following information:
+3. You will be prompted to enter the following information:
 
-AWS Access Key ID: This is your AWS access key.
-AWS Secret Access Key: This is your AWS secret access key.
-Default region name: Enter your desired AWS region (e.g., us-east-1, eu-centeral-a).
-Default output format: defult json.
+- AWS Access Key ID: This is your AWS access key.
+- AWS Secret Access Key: This is your AWS secret access key.
+- Default region name: Enter your desired AWS region (e.g., us-east-1, eu-central-1).
+- Default output format: Default JSON.
 
-How to get AWS Access Key ID & AWS Secret Access Key
-You will go to your aws account 
-On the top right you will find a drop down menu that has your account name
-Hover on it and select "Security Credentials"
-Find Access keys 
-Select Create Access key
-And you will have your AWS Access Key ID & AWS Secret Access Key 
-Copy them and paste them in your terminal after runing 'aws configure' from the previous step
+#### How to Get AWS Access Key ID & AWS Secret Access Key
+
+- Log in to your AWS account.
+- Click on your account name in the top right corner.
+- Hover over "Security Credentials."
+- Find "Access keys" and click "Create Access key."
+- Copy and paste the AWS Access Key ID & AWS Secret Access Key into the terminal after running 'aws configure'.
 
 ### Create Workspaces
 
-By Default you are on the default workspace, you can make sure by running the following command : 
+1. By default, you are on the default workspace. Verify your current workspace by running:
+
 ```
 terraform workspace list
 ```
 Now you know which workspace you are on.
 
-Now You want to create the  `dev` and `prod` workspaces, and you can do that by executing the following command.
+1. Now You want to create the  `dev` and `prod` workspaces, and you can do that by executing the following command.
 ```
 terraform workspace new dev # the dev workspace
 terraform workspace new prod # the prod workspace
 ```
 Now you have created the desired workspaces
-To Switch Between Workspaces
+
+3. To switch between workspaces:
+
 ```
 terraform workspace select dev # the dev workspace
 terraform workspace select prod # the prod workspace
 ```
 
-We use the ```terraform apply``` command to Apply Configurations for Each Workspace.
 
+4. Use the `terraform apply` command to apply configurations for each workspace.
 
-### Definition of environment-specific variables in `.tfvars` files.
+### Definition of environment-specific variables in `.tfvars` files
 
-Creating 2 .tfvar files with the desired variables for each enviroment
+1. Create two `.tfvars` files with the desired variables for each environment (e.g., `dev.tfvars` and `prod.tfvars`).
 
-when we want to Use the Variable Files with each enviroment, we execute the apply command by specifying the ```var-file``` for the command.
+2. Use the Variable Files with each enviroment, we execute the apply command by specifying the ```var-file``` for the command:
+
 Example:
 ```
 terraform apply -var-file=dev.tfvars #for the "dev" environment
 terraform apply -var-file=prod.tfvars #for the "prod" environment
 ```
-[!WARNING]  
-You might encounter this problem now and in the future.
-[!IMPORTANT]  
-When going into diffrent workspaces you might need to import your key in the selected workspace before running in our case here is the command you need to run to import the key
+**Note**: You might encounter this problem now and in the future.
+
+**Note**: If you encounter issues switching between workspaces, import your key in the selected workspace:
+
+
 ```
 terraform import aws_key_pair.tf-key-pairz tf-key-pairz
 ```
